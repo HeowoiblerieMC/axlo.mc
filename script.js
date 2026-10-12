@@ -1,65 +1,55 @@
 "use strict";
 
 const SERVER_IP = "play.axlomc.net";
-const TYPEWRITER_LINES = [
-    "Explore your world.",
-    "Make your life cool."
-];
 
-const TYPE_SPEED = 58;
-const LINE_PAUSE = 500;
-const START_DELAY = 900;
+const TYPEWRITER_TEXT =
+    "Explore your world. Make your life cool.";
 
-const typewriterText = document.getElementById("typewriterText");
-const typewriterCursor = document.getElementById("typewriterCursor");
-const heroActions = document.getElementById("heroActions");
-const serverAddress = document.getElementById("serverAddress");
-const copyIpButton = document.getElementById("copyIpButton");
-const copyIpButtonText = document.getElementById("copyIpButtonText");
-const networkCopyButton = document.getElementById("networkCopyButton");
-const networkCopyLabel = document.getElementById("networkCopyLabel");
-const toast = document.getElementById("toast");
+const TYPEWRITER_SPEED = 58;
+const TYPEWRITER_START_DELAY = 1100;
+
 const siteHeader = document.getElementById("siteHeader");
 const menuButton = document.getElementById("menuButton");
 const mainNavigation = document.getElementById("mainNavigation");
+
+const typewriterText = document.getElementById("typewriterText");
+const typewriterCursor = document.getElementById("typewriterCursor");
+
+const serverAddress = document.getElementById("serverAddress");
+const heroButtons = document.getElementById("heroButtons");
+
+const copyIpButton = document.getElementById("copyIpButton");
+const copyIpButtonText = document.getElementById("copyIpButtonText");
+
+const joinCopyButton = document.getElementById("joinCopyButton");
+const joinCopyLabel = document.getElementById("joinCopyLabel");
+
+const toast = document.getElementById("toast");
 const currentYear = document.getElementById("currentYear");
 
-let lineIndex = 0;
-let characterIndex = 0;
-let renderedText = "";
+let typewriterIndex = 0;
 let toastTimer = null;
 let copyResetTimer = null;
 
-function typeNextCharacter() {
-    if (lineIndex >= TYPEWRITER_LINES.length) {
-        finishTypewriter();
+function runTypewriter() {
+    if (typewriterIndex < TYPEWRITER_TEXT.length) {
+        typewriterText.textContent +=
+            TYPEWRITER_TEXT.charAt(typewriterIndex);
+
+        typewriterIndex += 1;
+
+        window.setTimeout(
+            runTypewriter,
+            TYPEWRITER_SPEED
+        );
+
         return;
     }
 
-    const currentLine = TYPEWRITER_LINES[lineIndex];
-
-    if (characterIndex < currentLine.length) {
-        renderedText += currentLine.charAt(characterIndex);
-        typewriterText.textContent = renderedText;
-        characterIndex += 1;
-        window.setTimeout(typeNextCharacter, TYPE_SPEED);
-        return;
-    }
-
-    lineIndex += 1;
-    characterIndex = 0;
-
-    if (lineIndex < TYPEWRITER_LINES.length) {
-        renderedText += " ";
-        typewriterText.textContent = renderedText;
-        window.setTimeout(typeNextCharacter, LINE_PAUSE);
-        return;
-    }
-
-    finishTypewriter();
+    completeHeroIntroduction();
 }
 
-function finishTypewriter() {
+function completeHeroIntroduction() {
     typewriterCursor.classList.add("hidden");
 
     window.setTimeout(() => {
@@ -67,58 +57,68 @@ function finishTypewriter() {
     }, 180);
 
     window.setTimeout(() => {
-        heroActions.classList.add("visible");
+        heroButtons.classList.add("visible");
     }, 450);
 }
 
 async function copyServerIp() {
-    let copied = false;
+    let copySucceeded = false;
 
-    if (navigator.clipboard && window.isSecureContext) {
+    if (
+        navigator.clipboard &&
+        window.isSecureContext
+    ) {
         try {
             await navigator.clipboard.writeText(SERVER_IP);
-            copied = true;
+            copySucceeded = true;
         } catch (error) {
-            copied = false;
+            copySucceeded = false;
         }
     }
 
-    if (!copied) {
-        copied = fallbackCopy(SERVER_IP);
+    if (!copySucceeded) {
+        copySucceeded = fallbackCopy(SERVER_IP);
     }
 
-    if (copied) {
+    if (copySucceeded) {
         showCopiedState();
         showToast("Server IP copied.");
-    } else {
-        showToast(`Copy this address: ${SERVER_IP}`);
+        return;
     }
+
+    showToast(`Server IP: ${SERVER_IP}`);
 }
 
 function fallbackCopy(text) {
-    const temporaryInput = document.createElement("textarea");
+    const temporaryTextarea =
+        document.createElement("textarea");
 
-    temporaryInput.value = text;
-    temporaryInput.setAttribute("readonly", "");
-    temporaryInput.style.position = "fixed";
-    temporaryInput.style.top = "-9999px";
-    temporaryInput.style.left = "-9999px";
+    temporaryTextarea.value = text;
+    temporaryTextarea.setAttribute("readonly", "");
+    temporaryTextarea.style.position = "fixed";
+    temporaryTextarea.style.top = "-9999px";
+    temporaryTextarea.style.left = "-9999px";
 
-    document.body.appendChild(temporaryInput);
-    temporaryInput.select();
-    temporaryInput.setSelectionRange(0, temporaryInput.value.length);
+    document.body.appendChild(temporaryTextarea);
 
-    let success = false;
+    temporaryTextarea.select();
+    temporaryTextarea.setSelectionRange(
+        0,
+        temporaryTextarea.value.length
+    );
+
+    let copySucceeded = false;
 
     try {
-        success = document.execCommand("copy");
+        copySucceeded =
+            document.execCommand("copy");
     } catch (error) {
-        success = false;
+        copySucceeded = false;
     }
 
-    document.body.removeChild(temporaryInput);
+    document.body.removeChild(temporaryTextarea);
 
-    return success;
+    return copySucceeded;
 }
 
 function showCopiedState() {
@@ -126,12 +126,13 @@ function showCopiedState() {
 
     copyIpButton.classList.add("copied");
     copyIpButtonText.textContent = "IP Copied";
-    networkCopyLabel.textContent = "Copied";
+    joinCopyLabel.textContent = "Copied";
 
     copyResetTimer = window.setTimeout(() => {
         copyIpButton.classList.remove("copied");
-        copyIpButtonText.textContent = "Copy Server IP";
-        networkCopyLabel.textContent = "Copy IP";
+        copyIpButtonText.textContent =
+            "Copy Server IP";
+        joinCopyLabel.textContent = "Copy IP";
     }, 2200);
 }
 
@@ -146,106 +147,170 @@ function showToast(message) {
     }, 2300);
 }
 
-function handleHeaderState() {
-    siteHeader.classList.toggle("scrolled", window.scrollY > 24);
+function updateHeader() {
+    siteHeader.classList.toggle(
+        "scrolled",
+        window.scrollY > 24
+    );
 }
 
 function toggleNavigation() {
-    const isOpen = mainNavigation.classList.toggle("open");
+    const navigationIsOpen =
+        mainNavigation.classList.toggle("open");
 
-    menuButton.classList.toggle("active", isOpen);
-    menuButton.setAttribute("aria-expanded", String(isOpen));
-    menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation" : "Open navigation"
+    menuButton.classList.toggle(
+        "active",
+        navigationIsOpen
     );
 
-    document.body.classList.toggle("menu-open", isOpen);
+    menuButton.setAttribute(
+        "aria-expanded",
+        String(navigationIsOpen)
+    );
+
+    menuButton.setAttribute(
+        "aria-label",
+        navigationIsOpen
+            ? "Close navigation"
+            : "Open navigation"
+    );
+
+    document.body.classList.toggle(
+        "menu-open",
+        navigationIsOpen
+    );
 }
 
 function closeNavigation() {
     mainNavigation.classList.remove("open");
     menuButton.classList.remove("active");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open navigation");
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    menuButton.setAttribute(
+        "aria-label",
+        "Open navigation"
+    );
+
     document.body.classList.remove("menu-open");
 }
 
-function initializeRevealAnimation() {
-    const revealElements = document.querySelectorAll(".reveal");
+function initializeRevealAnimations() {
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
     if (!("IntersectionObserver" in window)) {
         revealElements.forEach((element) => {
             element.classList.add("visible");
         });
+
         return;
     }
 
-    const observer = new IntersectionObserver(
-        (entries, currentObserver) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
+    const revealObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
 
-                entry.target.classList.add("visible");
-                currentObserver.unobserve(entry.target);
-            });
-        },
-        {
-            threshold: 0.14,
-            rootMargin: "0px 0px -40px 0px"
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    observer.unobserve(entry.target);
+                });
+            },
+            {
+                threshold: 0.14,
+                rootMargin: "0px 0px -40px 0px"
+            }
+        );
+
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
+    });
+}
+
+function initializeNavigation() {
+    const navigationLinks =
+        mainNavigation.querySelectorAll("a");
+
+    navigationLinks.forEach((link) => {
+        link.addEventListener(
+            "click",
+            closeNavigation
+        );
+    });
+
+    document.addEventListener(
+        "click",
+        (event) => {
+            const clickedNavigation =
+                mainNavigation.contains(event.target);
+
+            const clickedMenuButton =
+                menuButton.contains(event.target);
+
+            if (
+                mainNavigation.classList.contains("open") &&
+                !clickedNavigation &&
+                !clickedMenuButton
+            ) {
+                closeNavigation();
+            }
         }
     );
 
-    revealElements.forEach((element) => {
-        observer.observe(element);
-    });
-}
-
-function initializeNavigationLinks() {
-    const navigationLinks = mainNavigation.querySelectorAll("a");
-
-    navigationLinks.forEach((link) => {
-        link.addEventListener("click", closeNavigation);
-    });
-
-    document.addEventListener("click", (event) => {
-        const clickedInsideNavigation = mainNavigation.contains(event.target);
-        const clickedMenuButton = menuButton.contains(event.target);
-
-        if (
-            mainNavigation.classList.contains("open") &&
-            !clickedInsideNavigation &&
-            !clickedMenuButton
-        ) {
-            closeNavigation();
+    window.addEventListener(
+        "resize",
+        () => {
+            if (window.innerWidth > 760) {
+                closeNavigation();
+            }
         }
-    });
+    );
+}
 
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 760) {
-            closeNavigation();
+function initializeWebsite() {
+    currentYear.textContent =
+        String(new Date().getFullYear());
+
+    copyIpButton.addEventListener(
+        "click",
+        copyServerIp
+    );
+
+    joinCopyButton.addEventListener(
+        "click",
+        copyServerIp
+    );
+
+    menuButton.addEventListener(
+        "click",
+        toggleNavigation
+    );
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        {
+            passive: true
         }
-    });
+    );
+
+    updateHeader();
+    initializeRevealAnimations();
+    initializeNavigation();
+
+    window.setTimeout(
+        runTypewriter,
+        TYPEWRITER_START_DELAY
+    );
 }
 
-function initialize() {
-    currentYear.textContent = String(new Date().getFullYear());
-
-    copyIpButton.addEventListener("click", copyServerIp);
-    networkCopyButton.addEventListener("click", copyServerIp);
-    menuButton.addEventListener("click", toggleNavigation);
-
-    window.addEventListener("scroll", handleHeaderState, {
-        passive: true
-    });
-
-    handleHeaderState();
-    initializeRevealAnimation();
-    initializeNavigationLinks();
-
-    window.setTimeout(typeNextCharacter, START_DELAY);
-}
-
-initialize();
+initializeWebsite();
