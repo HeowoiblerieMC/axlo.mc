@@ -4,28 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AxloMC Store">
-    <meta name="theme-color" content="#070913">
+    <meta name="theme-color" content="#060811">
 
     <title>Shop | AxloMC</title>
 
-    <link rel="stylesheet" href="./shop.css">
-    <script src="./shop.js" defer></script>
+    ./shop.css
+    ./shop.jsscript>
 </head>
 
 <body>
     <div class="page-background" aria-hidden="true">
         <div class="background-grid"></div>
-        <div class="background-glow background-glow-purple"></div>
-        <div class="background-glow background-glow-cyan"></div>
+        <div class="background-glow glow-purple"></div>
+        <div class="background-glow glow-cyan"></div>
     </div>
 
     <header class="site-header" id="siteHeader">
-        <a class="brand" href="./index.html" aria-label="AxloMC home">
-            <img
-                class="brand-logo"
-                src="./img/IMG_2433.png"
-                alt="AxloMC logo"
-            >
+        ./index.html
+            ./img/IMG_2433.png
             <span>AXLOMC</span>
         </a>
 
@@ -47,12 +43,12 @@
             id="mainNavigation"
             aria-label="Main navigation"
         >
-            <a href="./index.html">Home</a>
-            <a class="active" href="./shop.html">Shop</a>
-            <a href="./index.html#staff">Staff</a>
-            <a href="./index.html#announcements">Announcements</a>
-            <a href="./index.html#news">News</a>
-            <a href="./index.html#posts">Posts</a>
+            ./index.htmlHome</a>
+            ./shop.htmlShop</a>
+            ./staff.htmlStaff</a>
+            ./index.html#announcementsAnnouncements</a>
+            ./index.html#newsNews</a>
+            ./index.html#postsPosts</a>
         </nav>
     </header>
 
@@ -63,20 +59,19 @@
 
             <div class="shop-hero-content">
                 <p class="section-label">AXLOMC STORE</p>
-
                 <h1>Choose your place.</h1>
 
                 <p>
                     Support the network, unlock new possibilities,
-                    and choose the products that match your style.
+                    and choose the product that matches your style.
                 </p>
             </div>
         </section>
 
-        <section class="category-navigation-section">
-            <nav class="category-navigation" aria-label="Store categories">
+        <section class="shop-navigation-section">
+            <nav class="shop-navigation" aria-label="Shop categories">
                 <button
-                    class="category-button active"
+                    class="shop-tab active"
                     type="button"
                     data-category="ranks"
                 >
@@ -84,7 +79,7 @@
                 </button>
 
                 <button
-                    class="category-button"
+                    class="shop-tab"
                     type="button"
                     data-category="upgrades"
                 >
@@ -92,7 +87,7 @@
                 </button>
 
                 <button
-                    class="category-button"
+                    class="shop-tab"
                     type="button"
                     data-category="jewels"
                 >
@@ -100,7 +95,7 @@
                 </button>
 
                 <button
-                    class="category-button"
+                    class="shop-tab"
                     type="button"
                     data-category="tags"
                 >
@@ -110,8 +105,7 @@
         </section>
 
         <section
-            class="store-panel active"
-            id="ranksPanel"
+            class="shop-panel active"
             data-panel="ranks"
         >
             <div class="section-heading">
@@ -120,31 +114,27 @@
                     <h2>One purchase. Permanent access.</h2>
                 </div>
 
-                <p class="section-description">
+                <p>
                     Permanent ranks provide network benefits without
-                    requiring a recurring monthly payment.
+                    a recurring monthly payment.
                 </p>
             </div>
 
             <div class="product-grid">
-                <article class="product-card nova-card">
+                <article class="product-card nova-card rgb-interactive">
                     <div class="product-image-area">
-                        <span class="product-type">ENTRY RANK</span>
-
-                        <img
-                            src="./img/Nova.jpeg"
-                            alt="Nova rank prefix"
-                        >
+                        <span>ENTRY RANK</span>
+                        ./img/Nova.jpeg
                     </div>
 
                     <div class="product-content">
                         <div class="product-heading">
                             <div>
-                                <p class="product-duration">PERMANENT</p>
+                                <p>PERMANENT</p>
                                 <h3>Nova</h3>
                             </div>
 
-                            <p class="product-price">$3.99</p>
+                            <strong>$3.99</strong>
                         </div>
 
                         <p class="product-description">
@@ -152,7 +142,7 @@
                             their AxloMC journey.
                         </p>
 
-                        <ul class="benefit-list">
+                        <ul>
                             <li>Nova Survival Kit</li>
                             <li>Improved queue priority</li>
                             <li>Three home locations</li>
@@ -169,32 +159,28 @@
                     </div>
                 </article>
 
-                <article class="product-card vip-card">
+                <article class="product-card vip-card rgb-interactive">
                     <div class="product-image-area">
-                        <span class="product-type">COMFORT RANK</span>
-
-                        <img
-                            src="./img/VIP.jpeg"
-                            alt="VIP rank prefix"
-                        >
+                        <span>COMFORT RANK</span>
+                        ./img/VIP.jpeg
                     </div>
 
                     <div class="product-content">
                         <div class="product-heading">
                             <div>
-                                <p class="product-duration">PERMANENT</p>
+                                <p>PERMANENT</p>
                                 <h3>VIP</h3>
                             </div>
 
-                            <p class="product-price">$10.99</p>
+                            <strong>$10.99</strong>
                         </div>
 
                         <p class="product-description">
-                            A comfortable upgrade for players who want
-                            a more premium experience.
+                            A comfortable upgrade for players who want a
+                            more premium experience.
                         </p>
 
-                        <ul class="benefit-list">
+                        <ul>
                             <li>VIP Survival Kit</li>
                             <li>VIP chat prefix</li>
                             <li>Improved BedWars quests</li>
@@ -211,24 +197,20 @@
                     </div>
                 </article>
 
-                <article class="product-card idol-card">
+                <article class="product-card idol-card rgb-interactive">
                     <div class="product-image-area">
-                        <span class="product-type">STYLE RANK</span>
-
-                        <img
-                            src="./img/Idol.jpeg"
-                            alt="Idol rank prefix"
-                        >
+                        <span>STYLE RANK</span>
+                        ./img/Idol.jpeg
                     </div>
 
                     <div class="product-content">
                         <div class="product-heading">
                             <div>
-                                <p class="product-duration">PERMANENT</p>
+                                <p>PERMANENT</p>
                                 <h3>Idol</h3>
                             </div>
 
-                            <p class="product-price">$20.99</p>
+                            <strong>$20.99</strong>
                         </div>
 
                         <p class="product-description">
@@ -236,7 +218,7 @@
                             style, and an unmistakable presence.
                         </p>
 
-                        <ul class="benefit-list">
+                        <ul>
                             <li>Exclusive Heart Rings</li>
                             <li>Idol Survival Kit</li>
                             <li>Create a guild</li>
@@ -253,26 +235,22 @@
                     </div>
                 </article>
 
-                <article class="product-card mvp-card featured-card">
+                <article class="product-card mvp-card rgb-interactive">
                     <span class="featured-label">COMMUNITY LEADER</span>
 
                     <div class="product-image-area">
-                        <span class="product-type">FEATURED RANK</span>
-
-                        <img
-                            src="./img/MVP.jpeg"
-                            alt="MVP rank prefix"
-                        >
+                        <span>FEATURED RANK</span>
+                        ./img/MVP.jpeg
                     </div>
 
                     <div class="product-content">
                         <div class="product-heading">
                             <div>
-                                <p class="product-duration">PERMANENT</p>
+                                <p>PERMANENT</p>
                                 <h3>MVP</h3>
                             </div>
 
-                            <p class="product-price">$28.99</p>
+                            <strong>$28.99</strong>
                         </div>
 
                         <p class="product-description">
@@ -280,7 +258,7 @@
                             AxloMC community.
                         </p>
 
-                        <ul class="benefit-list">
+                        <ul>
                             <li>Host community events</li>
                             <li>Receive the Event Host Clock</li>
                             <li>Send event alerts</li>
@@ -289,7 +267,7 @@
                         </ul>
 
                         <button
-                            class="purchase-button primary-purchase-button"
+                            class="purchase-button gradient-button"
                             type="button"
                             data-product="MVP Rank"
                         >
@@ -301,8 +279,7 @@
         </section>
 
         <section
-            class="store-panel"
-            id="upgradesPanel"
+            class="shop-panel"
             data-panel="upgrades"
             hidden
         >
@@ -312,47 +289,39 @@
                     <h2>Upgrade your MVP experience.</h2>
                 </div>
 
-                <p class="section-description">
+                <p>
                     King and God are optional monthly upgrades available
                     to players who already own MVP.
                 </p>
             </div>
 
-            <div class="requirement-notice">
-                <span>MVP</span>
+            <div class="requirement-panel rgb-interactive">
+                <strong>MVP ownership is required.</strong>
 
-                <div>
-                    <strong>MVP ownership is required.</strong>
-
-                    <p>
-                        King and God add monthly benefits on top of
-                        permanent MVP access.
-                    </p>
-                </div>
+                <p>
+                    King and God add monthly benefits on top of permanent
+                    MVP access.
+                </p>
             </div>
 
-            <div class="product-grid upgrade-grid">
-                <article class="product-card king-card">
+            <div class="product-grid">
+                <article class="product-card king-card rgb-interactive">
                     <div class="product-image-area">
-                        <span class="product-type">ROYAL UPGRADE</span>
-
-                        <img
-                            src="./img/King.jpeg"
-                            alt="King rank prefix"
-                        >
+                        <span>ROYAL UPGRADE</span>
+                        ./img/King.jpeg
                     </div>
 
                     <div class="product-content">
                         <div class="product-heading">
                             <div>
-                                <p class="product-duration">MONTHLY</p>
+                                <p>MONTHLY</p>
                                 <h3>King</h3>
                             </div>
 
-                            <p class="product-price">
+                            <strong>
                                 $3.99
                                 <small>/ month</small>
-                            </p>
+                            </strong>
                         </div>
 
                         <p class="product-description">
@@ -360,7 +329,7 @@
                             who want more style and personality.
                         </p>
 
-                        <ul class="benefit-list">
+                        <ul>
                             <li>King Survival Kit</li>
                             <li>Nickname access</li>
                             <li>Custom tag access</li>
@@ -369,7 +338,7 @@
                         </ul>
 
                         <button
-                            class="purchase-button king-purchase-button"
+                            class="purchase-button"
                             type="button"
                             data-product="King Upgrade"
                         >
@@ -378,27 +347,23 @@
                     </div>
                 </article>
 
-                <article class="product-card god-card">
+                <article class="product-card god-card rgb-interactive">
                     <div class="product-image-area">
-                        <span class="product-type">ULTIMATE UPGRADE</span>
-
-                        <img
-                            src="./img/God.jpeg"
-                            alt="God rank prefix"
-                        >
+                        <span>ULTIMATE UPGRADE</span>
+                        ./img/God.jpeg
                     </div>
 
                     <div class="product-content">
                         <div class="product-heading">
                             <div>
-                                <p class="product-duration">MONTHLY</p>
+                                <p>MONTHLY</p>
                                 <h3>God</h3>
                             </div>
 
-                            <p class="product-price">
+                            <strong>
                                 $8.99
                                 <small>/ month</small>
-                            </p>
+                            </strong>
                         </div>
 
                         <p class="product-description">
@@ -406,7 +371,7 @@
                             who strongly support AxloMC.
                         </p>
 
-                        <ul class="benefit-list">
+                        <ul>
                             <li>God Survival Kit</li>
                             <li>Fastest queue priority</li>
                             <li>Nickname access</li>
@@ -415,7 +380,7 @@
                         </ul>
 
                         <button
-                            class="purchase-button god-purchase-button"
+                            class="purchase-button god-button"
                             type="button"
                             data-product="God Upgrade"
                         >
@@ -427,54 +392,52 @@
         </section>
 
         <section
-            class="store-panel"
-            id="jewelsPanel"
+            class="shop-panel"
             data-panel="jewels"
             hidden
         >
-            <div class="jewel-overview">
-                <div class="jewel-overview-content">
+            <div class="jewel-overview rgb-interactive">
+                <div>
                     <p class="section-label">PREMIUM CURRENCY</p>
-
                     <h2>Jewels</h2>
 
-                    <p class="jewel-description">
+                    <p>
                         Jewels are AxloMC's purchase-only premium currency.
                         Use Jewels to purchase ranks, unlock upgrades,
                         or send rank gifts to other players.
                     </p>
 
-                    <div class="jewel-exchange-rate">
+                    <div class="exchange-rate">
                         <span>100 Jewels</span>
-                        <span class="exchange-line"></span>
+                        <span></span>
                         <strong>$1.00 USD</strong>
                     </div>
                 </div>
 
-                <div class="jewel-usage">
-                    <div class="usage-item">
+                <div class="usage-list">
+                    <div>
                         <span>01</span>
                         <p>Purchase-only premium currency</p>
                     </div>
 
-                    <div class="usage-item">
+                    <div>
                         <span>02</span>
                         <p>Purchase permanent ranks</p>
                     </div>
 
-                    <div class="usage-item">
+                    <div>
                         <span>03</span>
                         <p>Purchase King or God upgrades</p>
                     </div>
 
-                    <div class="usage-item">
+                    <div>
                         <span>04</span>
                         <p>Send rank gifts to other players</p>
                     </div>
                 </div>
             </div>
 
-            <div class="jewel-package-heading">
+            <div class="section-heading package-heading">
                 <div>
                     <p class="section-label">JEWEL PACKAGES</p>
                     <h2>Select a package.</h2>
@@ -486,15 +449,11 @@
             </div>
 
             <div class="jewel-grid">
-                <article class="jewel-card">
+                <article class="jewel-card rgb-interactive">
                     <div class="jewel-symbol" aria-hidden="true"></div>
-
-                    <p class="jewel-amount">500</p>
-                    <p class="jewel-unit">Jewels</p>
-
-                    <div class="jewel-price">
-                        <strong>$5.00</strong>
-                    </div>
+                    <h3>500</h3>
+                    <p>JEWELS</p>
+                    <strong>$5.00</strong>
 
                     <button
                         class="purchase-button"
@@ -505,15 +464,11 @@
                     </button>
                 </article>
 
-                <article class="jewel-card">
+                <article class="jewel-card rgb-interactive">
                     <div class="jewel-symbol" aria-hidden="true"></div>
-
-                    <p class="jewel-amount">1,000</p>
-                    <p class="jewel-unit">Jewels</p>
-
-                    <div class="jewel-price">
-                        <strong>$10.00</strong>
-                    </div>
+                    <h3>1,000</h3>
+                    <p>JEWELS</p>
+                    <strong>$10.00</strong>
 
                     <button
                         class="purchase-button"
@@ -524,15 +479,11 @@
                     </button>
                 </article>
 
-                <article class="jewel-card">
+                <article class="jewel-card rgb-interactive">
                     <div class="jewel-symbol" aria-hidden="true"></div>
-
-                    <p class="jewel-amount">2,000</p>
-                    <p class="jewel-unit">Jewels</p>
-
-                    <div class="jewel-price">
-                        <strong>$20.00</strong>
-                    </div>
+                    <h3>2,000</h3>
+                    <p>JEWELS</p>
+                    <strong>$20.00</strong>
 
                     <button
                         class="purchase-button"
@@ -543,15 +494,11 @@
                     </button>
                 </article>
 
-                <article class="jewel-card">
+                <article class="jewel-card rgb-interactive">
                     <div class="jewel-symbol" aria-hidden="true"></div>
-
-                    <p class="jewel-amount">3,500</p>
-                    <p class="jewel-unit">Jewels</p>
-
-                    <div class="jewel-price">
-                        <strong>$35.00</strong>
-                    </div>
+                    <h3>3,500</h3>
+                    <p>JEWELS</p>
+                    <strong>$35.00</strong>
 
                     <button
                         class="purchase-button"
@@ -562,15 +509,11 @@
                     </button>
                 </article>
 
-                <article class="jewel-card">
+                <article class="jewel-card rgb-interactive">
                     <div class="jewel-symbol" aria-hidden="true"></div>
-
-                    <p class="jewel-amount">5,000</p>
-                    <p class="jewel-unit">Jewels</p>
-
-                    <div class="jewel-price">
-                        <strong>$50.00</strong>
-                    </div>
+                    <h3>5,000</h3>
+                    <p>JEWELS</p>
+                    <strong>$50.00</strong>
 
                     <button
                         class="purchase-button"
@@ -581,21 +524,19 @@
                     </button>
                 </article>
 
-                <article class="jewel-card discount-card">
-                    <span class="discount-badge">SAVE $5</span>
-
+                <article class="jewel-card sale-card rgb-interactive">
+                    <span class="sale-badge">SAVE $5</span>
                     <div class="jewel-symbol" aria-hidden="true"></div>
+                    <h3>7,500</h3>
+                    <p>JEWELS</p>
 
-                    <p class="jewel-amount">7,500</p>
-                    <p class="jewel-unit">Jewels</p>
-
-                    <div class="jewel-price sale-price">
+                    <div class="sale-price">
                         <strong>$70.00</strong>
                         <del>$75.00</del>
                     </div>
 
                     <button
-                        class="purchase-button primary-purchase-button"
+                        class="purchase-button gradient-button"
                         type="button"
                         data-product="7,500 Jewels"
                     >
@@ -603,21 +544,19 @@
                     </button>
                 </article>
 
-                <article class="jewel-card discount-card">
-                    <span class="discount-badge">SAVE $10</span>
-
+                <article class="jewel-card sale-card rgb-interactive">
+                    <span class="sale-badge">SAVE $10</span>
                     <div class="jewel-symbol" aria-hidden="true"></div>
+                    <h3>10,000</h3>
+                    <p>JEWELS</p>
 
-                    <p class="jewel-amount">10,000</p>
-                    <p class="jewel-unit">Jewels</p>
-
-                    <div class="jewel-price sale-price">
+                    <div class="sale-price">
                         <strong>$90.00</strong>
                         <del>$100.00</del>
                     </div>
 
                     <button
-                        class="purchase-button primary-purchase-button"
+                        class="purchase-button gradient-button"
                         type="button"
                         data-product="10,000 Jewels"
                     >
@@ -625,21 +564,19 @@
                     </button>
                 </article>
 
-                <article class="jewel-card discount-card best-value-card">
-                    <span class="discount-badge">BEST VALUE</span>
-
+                <article class="jewel-card sale-card best-value rgb-interactive">
+                    <span class="sale-badge">BEST VALUE</span>
                     <div class="jewel-symbol" aria-hidden="true"></div>
+                    <h3>20,000</h3>
+                    <p>JEWELS</p>
 
-                    <p class="jewel-amount">20,000</p>
-                    <p class="jewel-unit">Jewels</p>
-
-                    <div class="jewel-price sale-price">
+                    <div class="sale-price">
                         <strong>$175.00</strong>
                         <del>$200.00</del>
                     </div>
 
                     <button
-                        class="purchase-button primary-purchase-button"
+                        class="purchase-button gradient-button"
                         type="button"
                         data-product="20,000 Jewels"
                     >
@@ -647,25 +584,20 @@
                     </button>
                 </article>
             </div>
-
-            <p class="store-disclaimer">
-                Jewels have no cash value and cannot be exchanged for cash.
-            </p>
         </section>
 
         <section
-            class="store-panel"
-            id="tagsPanel"
+            class="shop-panel"
             data-panel="tags"
             hidden
         >
-            <div class="coming-soon-panel">
+            <div class="empty-panel rgb-interactive">
                 <p class="section-label">CHAT TAGS</p>
                 <h2>Chat Tags are coming next.</h2>
 
                 <p>
                     Common, Epic, Legendary, seasonal, custom,
-                    and special Chat Tags will be added here.
+                    and special Chat Tags will appear here.
                 </p>
             </div>
         </section>
@@ -673,10 +605,7 @@
 
     <footer class="site-footer">
         <div class="footer-brand">
-            <img
-                src="./img/IMG_2433.png"
-                alt="AxloMC logo"
-            >
+            ./img/IMG_2433.png
 
             <div>
                 <strong>AXLOMC</strong>
@@ -685,11 +614,9 @@
         </div>
 
         <nav class="footer-navigation" aria-label="Footer navigation">
-            <a href="./index.html">Home</a>
-            <button type="button" data-footer-category="ranks">Ranks</button>
-            <button type="button" data-footer-category="upgrades">Upgrades</button>
-            <button type="button" data-footer-category="jewels">Jewels</button>
-            <button type="button" data-footer-category="tags">Chat Tags</button>
+            ./index.htmlHome</a>
+            ./shop.htmlShop</a>
+            ./staff.htmlStaff</a>
         </nav>
 
         <p class="copyright">
@@ -702,11 +629,7 @@
         id="purchaseModal"
         aria-hidden="true"
     >
-        <div
-            class="modal-backdrop"
-            id="modalBackdrop"
-            aria-hidden="true"
-        ></div>
+        <div class="modal-backdrop" id="modalBackdrop"></div>
 
         <div
             class="modal-dialog"
@@ -724,7 +647,6 @@
             </button>
 
             <p class="section-label">STORE PREVIEW</p>
-
             <h2 id="modalTitle">Purchase</h2>
 
             <p id="modalDescription">
