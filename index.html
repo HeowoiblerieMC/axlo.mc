@@ -1,298 +1,52 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AxloMC Minecraft Network">
-    <meta name="theme-color" content="#060811">
-
-    <title>AxloMC | Minecraft Network</title>
-
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AxloMC Minecraft Network">
+  <meta name="theme-color" content="#060811">
+  <title>AxloMC | Minecraft Network</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
 </head>
-
 <body>
-    <div class="page-background" aria-hidden="true">
-        <div class="background-grid"></div>
-        <div class="background-glow glow-purple"></div>
-        <div class="background-glow glow-cyan"></div>
-    </div>
-
-    <header class="site-header" id="siteHeader">
-        <a class="brand" href="./index.html" aria-label="AxloMC home">
-            <img
-                class="brand-logo"
-                src="./img/IMG_2433.png"
-                alt="AxloMC logo"
-            >
-            <span>AXLOMC</span>
-        </a>
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Open navigation"
-            aria-expanded="false"
-            aria-controls="mainNavigation"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav
-            class="main-navigation"
-            id="mainNavigation"
-            aria-label="Main navigation"
-        >
-            <a href="./index.html" class="active">Home</a>
-            <a href="./shop.html">Shop</a>
-            <a href="./staff.html">Staff</a>
-            <a href="#announcements">Announcements</a>
-            <a href="#news">News</a>
-            <a href="#posts">Posts</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero-section" id="home">
-            <div class="hero-ring hero-ring-large" aria-hidden="true"></div>
-            <div class="hero-ring hero-ring-small" aria-hidden="true"></div>
-
-            <div class="hero-content">
-                <img
-                    class="hero-logo"
-                    src="./img/IMG_2433.png"
-                    alt="AxloMC logo"
-                >
-
-                <p class="hero-label">MINECRAFT NETWORK</p>
-
-                <h1>AXLOMC</h1>
-
-                <div class="typewriter" aria-live="polite">
-                    <span id="typewriterText"></span>
-                    <span
-                        class="typewriter-cursor"
-                        id="typewriterCursor"
-                        aria-hidden="true"
-                    ></span>
-                </div>
-
-                <div class="server-address" id="serverAddress">
-                    <span>SERVER ADDRESS</span>
-                    <strong>play.axlomc.net</strong>
-                </div>
-
-                <div class="hero-actions" id="heroActions">
-                    <button
-                        class="button primary-button"
-                        id="copyIpButton"
-                        type="button"
-                    >
-                        <span id="copyIpButtonText">Copy Server IP</span>
-                    </button>
-
-                    <a
-                        class="button secondary-button"
-                        href="https://discord.gg/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Discord
-                    </a>
-
-                    <a
-                        class="button secondary-button"
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        YouTube
-                    </a>
-                </div>
-
-                <a class="scroll-indicator" href="#explore">
-                    <span>Explore</span>
-                    <span class="scroll-line" aria-hidden="true"></span>
-                </a>
-            </div>
-        </section>
-
-        <section class="explore-section" id="explore">
-            <div class="section-heading reveal">
-                <p class="section-label">DISCOVER AXLOMC</p>
-                <h2>Explore the network.</h2>
-                <p>
-                    Visit the store, meet the team, and follow the latest
-                    developments across AxloMC.
-                </p>
-            </div>
-
-            <div class="feature-grid">
-                <article class="feature-card shop-card rgb-interactive reveal">
-                    <span class="card-number">01</span>
-
-                    <div class="card-content">
-                        <p class="card-label">STORE</p>
-                        <h3>Shop</h3>
-
-                        <p>
-                            Browse ranks, Jewels, rank gifts, Chat Tags,
-                            and limited cosmetic items.
-                        </p>
-
-                        <a class="card-link" href="./shop.html">
-                            <span>Visit Shop</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="feature-card staff-card rgb-interactive reveal">
-                    <span class="card-number">02</span>
-
-                    <div class="card-content">
-                        <p class="card-label">TEAM</p>
-                        <h3>Staff</h3>
-
-                        <p>
-                            Meet the people responsible for moderation,
-                            management, development, and community support.
-                        </p>
-
-                        <a class="card-link" href="./staff.html">
-                            <span>Meet the Team</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </article>
-
-                <article
-                    class="feature-card announcement-card rgb-interactive reveal"
-                    id="announcements"
-                >
-                    <span class="card-number">03</span>
-
-                    <div class="card-content">
-                        <p class="card-label">OFFICIAL</p>
-                        <h3>Announcements</h3>
-
-                        <p>
-                            Read maintenance schedules, policy changes,
-                            event notices, and official network updates.
-                        </p>
-
-                        <a class="card-link" href="#announcements">
-                            <span>View Announcements</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </article>
-
-                <article
-                    class="feature-card news-card rgb-interactive reveal"
-                    id="news"
-                >
-                    <span class="card-number">04</span>
-
-                    <div class="card-content">
-                        <p class="card-label">UPDATES</p>
-                        <h3>News</h3>
-
-                        <p>
-                            Discover upcoming game modes, major events,
-                            development progress, and new features.
-                        </p>
-
-                        <a class="card-link" href="#news">
-                            <span>Read News</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </article>
-
-                <article
-                    class="feature-card posts-card rgb-interactive reveal"
-                    id="posts"
-                >
-                    <span class="card-number">05</span>
-
-                    <div class="card-content">
-                        <p class="card-label">COMMUNITY</p>
-                        <h3>Posts</h3>
-
-                        <p>
-                            Explore community highlights, event recaps,
-                            featured creations, and player stories.
-                        </p>
-
-                        <a class="card-link" href="#posts">
-                            <span>Browse Posts</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="join-section">
-            <div class="join-panel rgb-interactive reveal">
-                <div>
-                    <p class="section-label">ENTER THE NETWORK</p>
-                    <h2>Your next world starts here.</h2>
-
-                    <p>
-                        Copy the server address and join AxloMC when
-                        the network becomes available.
-                    </p>
-                </div>
-
-                <button
-                    class="join-copy-button"
-                    id="joinCopyButton"
-                    type="button"
-                >
-                    <strong>play.axlomc.net</strong>
-                    <span id="joinCopyLabel">Copy IP</span>
-                </button>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-brand">
-            <img src="./img/IMG_2433.png" alt="AxloMC logo">
-
-            <div>
-                <strong>AXLOMC</strong>
-                <span>Minecraft Network</span>
-            </div>
+  <div class="page-background" aria-hidden="true"><div class="background-grid"></div><div class="glow glow-purple"></div><div class="glow glow-cyan"></div></div>
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="./index.html" aria-label="AxloMC home"><img src="./img/IMG_2433.png" alt="AxloMC logo"><span>AXLOMC</span></a>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNavigation"><span></span><span></span><span></span></button>
+    <nav class="main-navigation" id="mainNavigation" aria-label="Main navigation">
+      <a class="active" href="./index.html">Home</a><a href="./shop.html">Shop</a><a href="./staff.html">Staff</a><a href="#announcements">Announcements</a><a href="#news">News</a><a href="#posts">Posts</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-section" id="home">
+      <div class="hero-ring hero-ring-large" aria-hidden="true"></div><div class="hero-ring hero-ring-small" aria-hidden="true"></div>
+      <div class="hero-content">
+        <img class="hero-logo" src="./img/IMG_2433.png" alt="AxloMC logo">
+        <p class="eyebrow">MINECRAFT NETWORK</p><h1>AXLOMC</h1>
+        <div class="typewriter" aria-live="polite"><span id="typewriterText"></span><span class="cursor" id="typewriterCursor" aria-hidden="true"></span></div>
+        <div class="server-address" id="serverAddress"><span>SERVER ADDRESS</span><strong>play.axlomc.net</strong></div>
+        <div class="hero-actions" id="heroActions">
+          <button class="button button-primary" id="copyIpButton" type="button">Copy Server IP</button>
+          <a class="button button-secondary" href="https://discord.gg/" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a class="button button-secondary" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
-
-        <nav class="footer-navigation" aria-label="Footer navigation">
-            <a href="./index.html">Home</a>
-            <a href="./shop.html">Shop</a>
-            <a href="./staff.html">Staff</a>
-            <a href="#news">News</a>
-            <a href="#posts">Posts</a>
-        </nav>
-
-        <p class="copyright">
-            © <span id="currentYear"></span> AxloMC. All rights reserved.
-        </p>
-    </footer>
-
-    <div
-        class="toast"
-        id="toast"
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-    >
-        Server IP copied.
-    </div>
+        <a class="scroll-indicator" href="#explore"><span>Explore</span><i aria-hidden="true"></i></a>
+      </div>
+    </section>
+    <section class="content-section" id="explore">
+      <div class="section-heading reveal"><p class="eyebrow">DISCOVER AXLOMC</p><h2>Explore the network.</h2><p>Visit the store, meet the team, and follow the latest developments across AxloMC.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card wide rgb-interactive reveal"><span class="card-number">01</span><div><p class="eyebrow">STORE</p><h3>Shop</h3><p>Browse ranks, Jewels, rank gifts, Chat Tags, and limited cosmetic items.</p><a class="card-link" href="./shop.html">Visit Shop <span>â</span></a></div></article>
+        <article class="feature-card rgb-interactive reveal"><span class="card-number">02</span><div><p class="eyebrow">TEAM</p><h3>Staff</h3><p>Meet the people responsible for leadership, development, moderation, and community support.</p><a class="card-link" href="./staff.html">Meet the Team <span>â</span></a></div></article>
+        <article class="feature-card third rgb-interactive reveal" id="announcements"><span class="card-number">03</span><div><p class="eyebrow">OFFICIAL</p><h3>Announcements</h3><p>Read maintenance schedules, policy changes, event notices, and official updates.</p><a class="card-link" href="#announcements">View Announcements <span>â</span></a></div></article>
+        <article class="feature-card third rgb-interactive reveal" id="news"><span class="card-number">04</span><div><p class="eyebrow">UPDATES</p><h3>News</h3><p>Discover upcoming game modes, major events, development progress, and new features.</p><a class="card-link" href="#news">Read News <span>â</span></a></div></article>
+        <article class="feature-card third rgb-interactive reveal" id="posts"><span class="card-number">05</span><div><p class="eyebrow">COMMUNITY</p><h3>Posts</h3><p>Explore community highlights, event recaps, featured creations, and player stories.</p><a class="card-link" href="#posts">Browse Posts <span>â</span></a></div></article>
+      </div>
+    </section>
+    <section class="content-section join-section"><div class="join-panel rgb-interactive reveal"><div><p class="eyebrow">ENTER THE NETWORK</p><h2>Your next world starts here.</h2><p>Copy the server address and join AxloMC when the network becomes available.</p></div><button class="copy-panel" id="joinCopyButton" type="button"><strong>play.axlomc.net</strong><span id="joinCopyLabel">Copy IP</span></button></div></section>
+  </main>
+  <footer class="site-footer"><div class="footer-brand"><img src="./img/IMG_2433.png" alt="AxloMC logo"><div><strong>AXLOMC</strong><span>Minecraft Network</span></div></div><nav><a href="./index.html">Home</a><a href="./shop.html">Shop</a><a href="./staff.html">Staff</a></nav><p>Â© <span id="currentYear"></span> AxloMC. All rights reserved.</p></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite">Server IP copied.</div>
 </body>
 </html>
