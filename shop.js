@@ -5,9 +5,11 @@ const menuButton = document.getElementById("menuButton");
 const mainNavigation = document.getElementById("mainNavigation");
 const currentYear = document.getElementById("currentYear");
 
-const shopTabs = document.querySelectorAll("[data-shop-tab]");
-const shopPanels = document.querySelectorAll("[data-shop-panel]");
-const footerTabs = document.querySelectorAll("[data-footer-tab]");
+const categoryButtons = document.querySelectorAll("[data-category]");
+const storePanels = document.querySelectorAll("[data-panel]");
+const footerCategoryButtons = document.querySelectorAll(
+    "[data-footer-category]"
+);
 
 const purchaseButtons = document.querySelectorAll(
     ".purchase-button[data-product]"
@@ -25,25 +27,16 @@ function updateHeader() {
 }
 
 function toggleNavigation() {
-    const navigationIsOpen = mainNavigation.classList.toggle("open");
+    const isOpen = mainNavigation.classList.toggle("open");
 
-    menuButton.classList.toggle("active", navigationIsOpen);
-    menuButton.setAttribute(
-        "aria-expanded",
-        String(navigationIsOpen)
-    );
-
+    menuButton.classList.toggle("active", isOpen);
+    menuButton.setAttribute("aria-expanded", String(isOpen));
     menuButton.setAttribute(
         "aria-label",
-        navigationIsOpen
-            ? "Close navigation"
-            : "Open navigation"
+        isOpen ? "Close navigation" : "Open navigation"
     );
 
-    document.body.classList.toggle(
-        "menu-open",
-        navigationIsOpen
-    );
+    document.body.classList.toggle("menu-open", isOpen);
 }
 
 function closeNavigation() {
@@ -54,57 +47,67 @@ function closeNavigation() {
     document.body.classList.remove("menu-open");
 }
 
-function activateShopPanel(panelName, updateHash = true) {
-    shopTabs.forEach((tab) => {
-        const isActive = tab.dataset.shopTab === panelName;
-        tab.classList.toggle("active", isActive);
+function showCategory(categoryName, updateUrl = true) {
+    categoryButtons.forEach((button) => {
+        button.classList.toggle(
+            "active",
+            button.dataset.category === categoryName
+        );
     });
 
-    shopPanels.forEach((panel) => {
-        const isActive = panel.dataset.shopPanel === panelName;
+    storePanels.forEach((panel) => {
+        const isSelected = panel.dataset.panel === categoryName;
 
-        panel.classList.toggle("active", isActive);
-        panel.hidden = !isActive;
+        panel.hidden = !isSelected;
+        panel.classList.toggle("active", isSelected);
     });
 
-    if (updateHash) {
-        history.replaceState(
+    if (updateUrl) {
+        window.history.replaceState(
             null,
             "",
-            `#${panelName}`
+            `#${categoryName}`
         );
     }
 
+    const navigationSection = document.querySelector(
+        ".category-navigation-section"
+    );
+
+    const destination =
+        navigationSection.offsetTop + navigationSection.offsetHeight - 68;
+
     window.scrollTo({
-        top: document.querySelector(".shop-navigation-section").offsetTop - 68,
+        top: destination,
         behavior: "smooth"
     });
 }
 
-function initializeShopNavigation() {
-    shopTabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-            activateShopPanel(tab.dataset.shopTab);
-        });
-    });
-
-    footerTabs.forEach((button) => {
+function initializeCategories() {
+    categoryButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            activateShopPanel(button.dataset.footerTab);
+            showCategory(button.dataset.category);
         });
     });
 
-    const requestedPanel = window.location.hash.replace("#", "");
+    footerCategoryButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            showCategory(button.dataset.footerCategory);
+        });
+    });
 
-    const validPanelNames = [
+    const categoryFromUrl = window.location.hash.slice(1);
+    const validCategories = [
         "ranks",
         "upgrades",
         "jewels",
         "tags"
     ];
 
-    if (validPanelNames.includes(requestedPanel)) {
-        activateShopPanel(requestedPanel, false);
+    if (validCategories.includes(categoryFromUrl)) {
+        showCategory(categoryFromUrl, false);
+    } else {
+        showCategory("ranks", false);
     }
 }
 
@@ -188,7 +191,7 @@ function initializeWebsite() {
     );
 
     updateHeader();
-    initializeShopNavigation();
+    initializeCategories();
     initializePurchaseModal();
     initializeMobileNavigation();
 }
