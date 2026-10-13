@@ -1,1 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Browse AxloMC ranks, upgrades, and premium benefits."
+    >
+    <meta name="theme-color" content="#070913">
 
+    <title>Shop | AxloMC</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./shop.css">
+    <script src="./shop.js" defer></script>
+</head>
+
+<body>
+    <div class="page-background" aria-hidden="true">
+        <div class="background-grid"></div>
+        <div class="background-glow glow-purple"></div>
+        <div class="background-glow glow-cyan"></div>
+    </div>
+
+    <header class="site-header" id="siteHeader">
+        <a class="brand" href="./index.html" aria-label="Return to AxloMC home">
+            <img
+                class="brand-logo"
+                src="./img/IMG_2433.png"
+                alt="AxloMC logo"
+            >
+            <span>AXLOMC</span>
+        </a>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mainNavigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+            aria-label="Main navigation"
+        >
+            <a href="./index.html">Home</a>
+            <a class="active" href="./shop.html">Shop</a>
+            <a href="./index.html#staff">Staff</a>
+            <a href="./index.html#announcements">Announcements</a>
+            <a href="./index.html#news">News</a>
+            <a href="./index.html#posts">Posts</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="shop-hero">
+            <div class="hero-orbit hero-orbit-large" aria-hidden="true"></div>
+            <div class="hero-orbit hero-orbit-small" aria-hidden="true"></div>
+
+            <div class="shop-hero-content">
+                <p class="eyebrow">AXLOMC STORE</p>
+
+                <h1>Choose your rank.</h1>
+
+                <p class="hero-description">
+                    Support the network, unlock exclusive benefits,
+                    and choose the rank that matches your style.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="primary-button" href="#permanentRanks">
+                        Explore Ranks
+                    </a>
+
+                    <a class="secondary-button" href="#upgrades">
+                        View Upgrades
+                    </a>
+                </div>
+
+                <div class="store-notice">
+                    <span class="notice-mark" aria-hidden="true"></span>
+                    <p>
+                        Permanent ranks are purchased once. King and God
+                        are optional monthly upgrades that require MVP.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="shop-navigation-section">
+            <nav class="shop-navigation" aria-label="Shop categories">
+                <a class="shop-tab active" href="#permanentRanks">
+                    Permanent Ranks
+                </a>
+
+                <a class="shop-tab" href="#upgrades">
+                    MVP Upgrades
+                </a>
+
+                <a class="shop-tab" href="#jewels">
+                    Jewels
+                </a>
+
+                <a class="shop-tab" href="#comingSoon">
+                    Chat Tags
+                </a>
+            </nav>
+        </section>
+
+        <section class="store-section" id="permanentRanks">
+            <div class="section-heading reveal">
+                <div>
+                    <p class="section-label">PERMANENT RANKS</p>
+                    <h2>One purchase. Permanent access.</h2>
+                </div>
+
+                <p class="section-description">
+                    Permanent ranks provide network benefits without
+                    a recurring monthly payment.
+                </p>
+            </div>
+
+            <div class="rank-grid">
+                <article class="rank-card nova-card reveal">
+                    <div class="rank-visual">
+                        <span class="rank-category">ENTRY RANK</span>
+
+                        <img
+                            src="./img/Nova.jpeg"
+                            alt="Nova rank preview"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="rank-content">
+                        <div class="rank-header">
+                            <div>
+                                <p class="rank-name-label">PERMANENT</p>
+                                <h3>Nova</h3>
+                            </div>
+
+                            <p class="rank-price">
+                                <span>$</span>3.99
+                            </p>
+                        </div>
+
+                        <p class="rank-summary">
+                            The perfect first purchase for players who
+                            want an affordable introduction to AxloMC ranks.
+                        </p>
+
+                        <ul class="rank-benefits">
+                            <li>Nova chat prefix</li>
+                            <li>Nova Survival Kit</li>
+                            <li>Fast queue access</li>
+                            <li>Three home locations</li>
+                            <li>Double KitPVP coin rewards</li>
+                        </ul>
+
+                        <button
+                            class="purchase-button"
+                            type="button"
+                            data-product="Nova Rank"
+                        >
+                            Purchase Nova
+                        </button>
+                    </div>
+                </article>
+
+                <article class="rank-card vip-card reveal">
+                    <div class="rank-visual">
+                        <span class="rank-category">COMFORT RANK</span>
+
+                        <img
+                            src="./img/VIP.jpeg"
+                            alt="VIP rank preview"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="rank-content">
+                        <div class="rank-header">
+                            <div>
+                                <p class="rank-name-label">PERMANENT</p>
+                                <h3>VIP</h3>
+                            </div>
+
+                            <p class="rank-price">
+                                <span>$</span>10.99
+                            </p>
+                        </div>
+
+                        <p class="rank-summary">
+                            A comfortable upgrade for players who want
+                            stronger benefits and a more premium experience.
+                        </p>
+
+                        <ul class="rank-benefits">
+                            <li>VIP chat prefix</li>
+                            <li>VIP Survival Kit</li>
+                            <li>Improved queue priority</li>
+                            <li>Improved BedWars quests</li>
+                            <li>Improved SkyWars quests</li>
+                        </ul>
+
+                        <button
+                            class="purchase-button"
+                            type="button"
+                            data-product="VIP Rank"
+                        >
+                            Purchase VIP
+                        </button>
+                    </div>
+                </article>
+
+                <article class="rank-card idol-card reveal">
+                    <div class="rank-visual">
+                        <span class="rank-category">STYLE RANK</span>
+
+                        <img
+                            src="./img/Idol.jpeg"
+                            alt="Idol rank preview"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="rank-content">
+                        <div class="rank-header">
+                            <div>
+                                <p class="rank-name-label">PERMANENT</p>
+                                <h3>Idol</h3>
+                            </div>
+
+                            <p class="rank-price">
+                                <span>$</span>20.99
+                            </p>
+                        </div>
+
+                        <p class="rank-summary">
+                            Designed for players who love style,
+                            cosmetics, and an unmistakable presence.
+                        </p>
+
+                        <ul class="rank-benefits">
+                            <li>Idol chat prefix</li>
+                            <li>Exclusive Heart Rings</li>
+                            <li>Create a guild</li>
+                            <li>Spectator access</li>
+                            <li>Five realm slots</li>
+                        </ul>
+
+                        <button
+                            class="purchase-button"
+                            type="button"
+                            data-product="Idol Rank"
+                        >
+                            Purchase Idol
+                        </button>
+                    </div>
+                </article>
+
+                <article class="rank-card mvp-card featured-rank reveal">
+                    <div class="featured-label">COMMUNITY LEADER</div>
+
+                    <div class="rank-visual">
+                        <span class="rank-category">FEATURED RANK</span>
+
+                        <img
+                            src="./img/MVP.jpeg"
+                            alt="MVP rank preview"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="rank-content">
+                        <div class="rank-header">
+                            <div>
+                                <p class="rank-name-label">PERMANENT</p>
+                                <h3>MVP</h3>
+                            </div>
+
+                            <p class="rank-price">
+                                <span>$</span>28.99
+                            </p>
+                        </div>
+
+                        <p class="rank-summary">
+                            Become a community leader, create events,
+                            and unlock the full Event Hall experience.
+                        </p>
+
+                        <ul class="rank-benefits">
+                            <li>Host community events</li>
+                            <li>Receive the Event Host Clock</li>
+                            <li>Send event alerts every 45 seconds</li>
+                            <li>Create a guild</li>
+                            <li>Unlock King and God upgrades</li>
+                        </ul>
+
+                        <button
+                            class="purchase-button featured-button"
+                            type="button"
+                            data-product="MVP Rank"
+                        >
+                            Purchase MVP
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="store-section upgrades-section" id="upgrades">
+            <div class="section-heading reveal">
+                <div>
+                    <p class="section-label">MVP REQUIRED</p>
+                    <h2>Choose your upgrade.</h2>
+                </div>
+
+                <p class="section-description">
+                    King and God are monthly upgrades available to
+                    players who already own the permanent MVP rank.
+                </p>
+            </div>
+
+            <div class="upgrade-notice reveal">
+                <div class="upgrade-notice-mark">MVP</div>
+
+                <div>
+                    <strong>MVP ownership is required.</strong>
+                    <p>
+                        King and God do not replace MVP. The upgrades add
+                        monthly benefits on top of permanent MVP access.
+                    </p>
+                </div>
+            </div>
+
+            <div class="upgrade-grid">
+                <article class="rank-card king-card reveal">
+                    <div class="rank-visual">
+                        <span class="rank-category">ROYAL UPGRADE</span>
+
+                        <img
+                            src="./img/King.jpeg"
+                            alt="King rank preview"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="rank-content">
+                        <div class="rank-header">
+                            <div>
+                                <p class="rank-name-label">MONTHLY</p>
+                                <h3>King</h3>
+                            </div>
+
+                            <p class="rank-price">
+                                <span>$</span>3.99
+                                <small>/ month</small>
+                            </p>
+                        </div>
+
+                        <p class="rank-summary">
+                            An affordable royal upgrade for MVP players
+                            who want more style, pride, and personality.
+                        </p>
+
+                        <ul class="rank-benefits">
+                            <li>King chat prefix</li>
+                            <li>King Survival Kit</li>
+                            <li>Custom chat tag</li>
+                            <li>Nickname access</li>
+                            <li>Exclusive Event Royal alert</li>
+                        </ul>
+
+                        <button
+                            class="purchase-button king-button"
+                            type="button"
+                            data-product="King Upgrade"
+                        >
+                            Purchase King
+                        </button>
+                    </div>
+                </article>
+
+                <article class="rank-card god-card reveal">
+                    <div class="rank-visual">
+                        <span class="rank-category">ULTIMATE UPGRADE</span>
+
+                        <img
+                            src="./img/God.jpeg"
+                            alt="God rank preview"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="rank-content">
+                        <div class="rank-header">
+                            <div>
+                                <p class="rank-name-label">MONTHLY</p>
+                                <h3>God</h3>
+                            </div>
+
+                            <p class="rank-price">
+                                <span>$</span>8.99
+                                <small>/ month</small>
+                            </p>
+                        </div>
+
+                        <p class="rank-summary">
+                            The ultimate upgrade for dedicated supporters
+                            who want the highest level of AxloMC benefits.
+                        </p>
+
+                        <ul class="rank-benefits">
+                            <li>God chat prefix</li>
+                            <li>God Survival Kit</li>
+                            <li>Fastest queue priority</li>
+                            <li>Special network quests</li>
+                            <li>Monthly 10,000 VX lottery entry</li>
+                        </ul>
+
+                        <button
+                            class="purchase-button god-button"
+                            type="button"
+                            data-product="God Upgrade"
+                        >
+                            Purchase God
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="store-section jewel-section" id="jewels">
+            <div class="jewel-panel reveal">
+                <div class="jewel-content">
+                    <p class="section-label">PREMIUM CURRENCY</p>
+                    <h2>Jewels</h2>
+
+                    <p>
+                        Jewels are AxloMC's premium currency. Use Jewels
+                        to purchase ranks or send rank gifts to other players.
+                    </p>
+
+                    <div class="jewel-rate">
+                        <span>100 Jewels</span>
+                        <span class="rate-line"></span>
+                        <strong>$1.00 USD</strong>
+                    </div>
+                </div>
+
+                <div class="jewel-information">
+                    <div>
+                        <span>01</span>
+                        <p>Purchase-only premium currency</p>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <p>Purchase permanent ranks</p>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <p>Gift ranks to other players</p>
+                    </div>
+
+                    <button
+                        class="purchase-button"
+                        type="button"
+                        data-product="Jewels"
+                    >
+                        Purchase Jewels
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="store-section coming-soon-section" id="comingSoon">
+            <div class="coming-soon-panel reveal">
+                <p class="section-label">NEXT STORE UPDATE</p>
+                <h2>Chat Tags are coming next.</h2>
+
+                <p>
+                    Common, Epic, Legendary, seasonal, custom, and special
+                    Chat Tags will be added to the AxloMC Store.
+                </p>
+
+                <a class="secondary-button" href="./index.html">
+                    Return Home
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <img src="./img/IMG_2433.png" alt="AxloMC logo">
+
+            <div>
+                <strong>AXLOMC</strong>
+                <span>Minecraft Network</span>
+            </div>
+        </div>
+
+        <nav class="footer-navigation" aria-label="Footer navigation">
+            <a href="./index.html">Home</a>
+            <a href="#permanentRanks">Ranks</a>
+            <a href="#upgrades">Upgrades</a>
+            <a href="#jewels">Jewels</a>
+            <a href="#comingSoon">Chat Tags</a>
+        </nav>
+
+        <p class="copyright">
+            © <span id="currentYear"></span> AxloMC. All rights reserved.
+        </p>
+    </footer>
+
+    <div
+        class="purchase-modal"
+        id="purchaseModal"
+        aria-hidden="true"
+    >
+        <div
+            class="modal-backdrop"
+            id="modalBackdrop"
+            aria-hidden="true"
+        ></div>
+
+        <div
+            class="modal-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+            <button
+                class="modal-close"
+                id="modalClose"
+                type="button"
+                aria-label="Close purchase window"
+            >
+                ×
+            </button>
+
+            <p class="section-label">STORE PREVIEW</p>
+            <h2 id="modalTitle">Purchase</h2>
+
+            <p id="modalDescription">
+                The AxloMC Store is currently being prepared.
+                Purchases will become available before launch.
+            </p>
+
+            <button
+                class="modal-button"
+                id="modalConfirm"
+                type="button"
+            >
+                Close
+            </button>
+        </div>
+    </div>
+</body>
+</html>
