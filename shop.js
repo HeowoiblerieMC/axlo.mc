@@ -5,6 +5,14 @@ const menuButton = document.getElementById("menuButton");
 const mainNavigation = document.getElementById("mainNavigation");
 const currentYear = document.getElementById("currentYear");
 
+const shopTabs = document.querySelectorAll("[data-shop-tab]");
+const shopPanels = document.querySelectorAll("[data-shop-panel]");
+const footerTabs = document.querySelectorAll("[data-footer-tab]");
+
+const purchaseButtons = document.querySelectorAll(
+    ".purchase-button[data-product]"
+);
+
 const purchaseModal = document.getElementById("purchaseModal");
 const modalBackdrop = document.getElementById("modalBackdrop");
 const modalClose = document.getElementById("modalClose");
@@ -12,28 +20,14 @@ const modalConfirm = document.getElementById("modalConfirm");
 const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
 
-const purchaseButtons = document.querySelectorAll(
-    ".purchase-button[data-product]"
-);
-
-const shopTabs = document.querySelectorAll(".shop-tab");
-
 function updateHeader() {
-    siteHeader.classList.toggle(
-        "scrolled",
-        window.scrollY > 24
-    );
+    siteHeader.classList.toggle("scrolled", window.scrollY > 24);
 }
 
 function toggleNavigation() {
-    const navigationIsOpen =
-        mainNavigation.classList.toggle("open");
+    const navigationIsOpen = mainNavigation.classList.toggle("open");
 
-    menuButton.classList.toggle(
-        "active",
-        navigationIsOpen
-    );
-
+    menuButton.classList.toggle("active", navigationIsOpen);
     menuButton.setAttribute(
         "aria-expanded",
         String(navigationIsOpen)
@@ -55,18 +49,63 @@ function toggleNavigation() {
 function closeNavigation() {
     mainNavigation.classList.remove("open");
     menuButton.classList.remove("active");
-
-    menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-    );
-
-    menuButton.setAttribute(
-        "aria-label",
-        "Open navigation"
-    );
-
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Open navigation");
     document.body.classList.remove("menu-open");
+}
+
+function activateShopPanel(panelName, updateHash = true) {
+    shopTabs.forEach((tab) => {
+        const isActive = tab.dataset.shopTab === panelName;
+        tab.classList.toggle("active", isActive);
+    });
+
+    shopPanels.forEach((panel) => {
+        const isActive = panel.dataset.shopPanel === panelName;
+
+        panel.classList.toggle("active", isActive);
+        panel.hidden = !isActive;
+    });
+
+    if (updateHash) {
+        history.replaceState(
+            null,
+            "",
+            `#${panelName}`
+        );
+    }
+
+    window.scrollTo({
+        top: document.querySelector(".shop-navigation-section").offsetTop - 68,
+        behavior: "smooth"
+    });
+}
+
+function initializeShopNavigation() {
+    shopTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            activateShopPanel(tab.dataset.shopTab);
+        });
+    });
+
+    footerTabs.forEach((button) => {
+        button.addEventListener("click", () => {
+            activateShopPanel(button.dataset.footerTab);
+        });
+    });
+
+    const requestedPanel = window.location.hash.replace("#", "");
+
+    const validPanelNames = [
+        "ranks",
+        "upgrades",
+        "jewels",
+        "tags"
+    ];
+
+    if (validPanelNames.includes(requestedPanel)) {
+        activateShopPanel(requestedPanel, false);
+    }
 }
 
 function openPurchaseModal(productName) {
@@ -91,30 +130,16 @@ function closePurchaseModal() {
     document.body.classList.remove("modal-open");
 }
 
-function initializePurchaseButtons() {
+function initializePurchaseModal() {
     purchaseButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            const productName =
-                button.dataset.product || "This product";
-
-            openPurchaseModal(productName);
+            openPurchaseModal(button.dataset.product);
         });
     });
 
-    modalClose.addEventListener(
-        "click",
-        closePurchaseModal
-    );
-
-    modalConfirm.addEventListener(
-        "click",
-        closePurchaseModal
-    );
-
-    modalBackdrop.addEventListener(
-        "click",
-        closePurchaseModal
-    );
+    modalClose.addEventListener("click", closePurchaseModal);
+    modalConfirm.addEventListener("click", closePurchaseModal);
+    modalBackdrop.addEventListener("click", closePurchaseModal);
 
     document.addEventListener("keydown", (event) => {
         if (
@@ -126,62 +151,16 @@ function initializePurchaseButtons() {
     });
 }
 
-function initializeRevealAnimations() {
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-    if (!("IntersectionObserver" in window)) {
-        revealElements.forEach((element) => {
-            element.classList.add("visible");
-        });
-
-        return;
-    }
-
-    const observer = new IntersectionObserver(
-        (entries, currentObserver) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                entry.target.classList.add("visible");
-                currentObserver.unobserve(entry.target);
-            });
-        },
-        {
-            threshold: 0.12,
-            rootMargin: "0px 0px -40px 0px"
-        }
-    );
-
-    revealElements.forEach((element) => {
-        observer.observe(element);
-    });
-}
-
 function initializeMobileNavigation() {
-    menuButton.addEventListener(
-        "click",
-        toggleNavigation
-    );
+    menuButton.addEventListener("click", toggleNavigation);
 
-    const navigationLinks =
-        mainNavigation.querySelectorAll("a");
-
-    navigationLinks.forEach((link) => {
-        link.addEventListener(
-            "click",
-            closeNavigation
-        );
+    mainNavigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeNavigation);
     });
 
     document.addEventListener("click", (event) => {
-        const clickedNavigation =
-            mainNavigation.contains(event.target);
-
-        const clickedMenuButton =
-            menuButton.contains(event.target);
+        const clickedNavigation = mainNavigation.contains(event.target);
+        const clickedMenuButton = menuButton.contains(event.target);
 
         if (
             mainNavigation.classList.contains("open") &&
@@ -199,79 +178,19 @@ function initializeMobileNavigation() {
     });
 }
 
-function initializeShopTabs() {
-    shopTabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-            shopTabs.forEach((currentTab) => {
-                currentTab.classList.remove("active");
-            });
-
-            tab.classList.add("active");
-        });
-    });
-
-    const sections = [
-        document.getElementById("permanentRanks"),
-        document.getElementById("upgrades"),
-        document.getElementById("jewels"),
-        document.getElementById("comingSoon")
-    ].filter(Boolean);
-
-    if (!("IntersectionObserver" in window)) {
-        return;
-    }
-
-    const sectionObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                const matchingTab =
-                    document.querySelector(
-                        `.shop-tab[href="#${entry.target.id}"]`
-                    );
-
-                if (!matchingTab) {
-                    return;
-                }
-
-                shopTabs.forEach((tab) => {
-                    tab.classList.remove("active");
-                });
-
-                matchingTab.classList.add("active");
-            });
-        },
-        {
-            threshold: 0.3,
-            rootMargin: "-120px 0px -45% 0px"
-        }
-    );
-
-    sections.forEach((section) => {
-        sectionObserver.observe(section);
-    });
-}
-
 function initializeWebsite() {
-    currentYear.textContent =
-        String(new Date().getFullYear());
+    currentYear.textContent = String(new Date().getFullYear());
 
     window.addEventListener(
         "scroll",
         updateHeader,
-        {
-            passive: true
-        }
+        { passive: true }
     );
 
     updateHeader();
+    initializeShopNavigation();
+    initializePurchaseModal();
     initializeMobileNavigation();
-    initializeRevealAnimations();
-    initializePurchaseButtons();
-    initializeShopTabs();
 }
 
 initializeWebsite();
