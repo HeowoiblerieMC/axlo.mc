@@ -1,7 +1,6 @@
 :root {
     --background: #060811;
     --surface: rgba(14, 19, 35, 0.78);
-    --surface-hover: rgba(20, 27, 48, 0.92);
     --border: rgba(166, 181, 220, 0.16);
     --border-bright: rgba(139, 99, 255, 0.58);
     --text: #f7f9ff;
@@ -149,8 +148,8 @@ img {
 }
 
 .brand-logo {
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     object-fit: contain;
     filter: drop-shadow(0 0 12px rgba(134, 88, 255, 0.45));
 }
@@ -272,7 +271,9 @@ img {
 
 .hero-logo {
     width: clamp(170px, 24vw, 270px);
+    max-height: 270px;
     margin-bottom: 24px;
+    object-fit: contain;
     opacity: 0;
     transform: translateY(24px) scale(0.92);
     filter:
@@ -816,8 +817,8 @@ img {
 }
 
 .footer-brand img {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
 }
 
