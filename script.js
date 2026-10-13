@@ -1,10 +1,7 @@
 "use strict";
 
 const SERVER_IP = "play.axlomc.net";
-
-const TYPEWRITER_TEXT =
-    "Explore your world. Make your life cool.";
-
+const TYPEWRITER_TEXT = "Explore your world. Make your life cool.";
 const TYPEWRITER_SPEED = 58;
 const TYPEWRITER_START_DELAY = 1100;
 
@@ -33,16 +30,10 @@ let copyResetTimer = null;
 
 function runTypewriter() {
     if (typewriterIndex < TYPEWRITER_TEXT.length) {
-        typewriterText.textContent +=
-            TYPEWRITER_TEXT.charAt(typewriterIndex);
-
+        typewriterText.textContent += TYPEWRITER_TEXT.charAt(typewriterIndex);
         typewriterIndex += 1;
 
-        window.setTimeout(
-            runTypewriter,
-            TYPEWRITER_SPEED
-        );
-
+        window.setTimeout(runTypewriter, TYPEWRITER_SPEED);
         return;
     }
 
@@ -64,10 +55,7 @@ function completeHeroIntroduction() {
 async function copyServerIp() {
     let copySucceeded = false;
 
-    if (
-        navigator.clipboard &&
-        window.isSecureContext
-    ) {
+    if (navigator.clipboard && window.isSecureContext) {
         try {
             await navigator.clipboard.writeText(SERVER_IP);
             copySucceeded = true;
@@ -90,8 +78,7 @@ async function copyServerIp() {
 }
 
 function fallbackCopy(text) {
-    const temporaryTextarea =
-        document.createElement("textarea");
+    const temporaryTextarea = document.createElement("textarea");
 
     temporaryTextarea.value = text;
     temporaryTextarea.setAttribute("readonly", "");
@@ -110,8 +97,7 @@ function fallbackCopy(text) {
     let copySucceeded = false;
 
     try {
-        copySucceeded =
-            document.execCommand("copy");
+        copySucceeded = document.execCommand("copy");
     } catch (error) {
         copySucceeded = false;
     }
@@ -130,8 +116,7 @@ function showCopiedState() {
 
     copyResetTimer = window.setTimeout(() => {
         copyIpButton.classList.remove("copied");
-        copyIpButtonText.textContent =
-            "Copy Server IP";
+        copyIpButtonText.textContent = "Copy Server IP";
         joinCopyLabel.textContent = "Copy IP";
     }, 2200);
 }
@@ -155,8 +140,7 @@ function updateHeader() {
 }
 
 function toggleNavigation() {
-    const navigationIsOpen =
-        mainNavigation.classList.toggle("open");
+    const navigationIsOpen = mainNavigation.classList.toggle("open");
 
     menuButton.classList.toggle(
         "active",
@@ -199,8 +183,7 @@ function closeNavigation() {
 }
 
 function initializeRevealAnimations() {
-    const revealElements =
-        document.querySelectorAll(".reveal");
+    const revealElements = document.querySelectorAll(".reveal");
 
     if (!("IntersectionObserver" in window)) {
         revealElements.forEach((element) => {
@@ -210,26 +193,22 @@ function initializeRevealAnimations() {
         return;
     }
 
-    const revealObserver =
-        new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
 
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-                    observer.unobserve(entry.target);
-                });
-            },
-            {
-                threshold: 0.14,
-                rootMargin: "0px 0px -40px 0px"
-            }
-        );
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.14,
+            rootMargin: "0px 0px -40px 0px"
+        }
+    );
 
     revealElements.forEach((element) => {
         revealObserver.observe(element);
@@ -237,71 +216,42 @@ function initializeRevealAnimations() {
 }
 
 function initializeNavigation() {
-    const navigationLinks =
-        mainNavigation.querySelectorAll("a");
+    const navigationLinks = mainNavigation.querySelectorAll("a");
 
     navigationLinks.forEach((link) => {
-        link.addEventListener(
-            "click",
-            closeNavigation
-        );
+        link.addEventListener("click", closeNavigation);
     });
 
-    document.addEventListener(
-        "click",
-        (event) => {
-            const clickedNavigation =
-                mainNavigation.contains(event.target);
+    document.addEventListener("click", (event) => {
+        const clickedNavigation = mainNavigation.contains(event.target);
+        const clickedMenuButton = menuButton.contains(event.target);
 
-            const clickedMenuButton =
-                menuButton.contains(event.target);
-
-            if (
-                mainNavigation.classList.contains("open") &&
-                !clickedNavigation &&
-                !clickedMenuButton
-            ) {
-                closeNavigation();
-            }
+        if (
+            mainNavigation.classList.contains("open") &&
+            !clickedNavigation &&
+            !clickedMenuButton
+        ) {
+            closeNavigation();
         }
-    );
+    });
 
-    window.addEventListener(
-        "resize",
-        () => {
-            if (window.innerWidth > 760) {
-                closeNavigation();
-            }
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 760) {
+            closeNavigation();
         }
-    );
+    });
 }
 
 function initializeWebsite() {
-    currentYear.textContent =
-        String(new Date().getFullYear());
+    currentYear.textContent = String(new Date().getFullYear());
 
-    copyIpButton.addEventListener(
-        "click",
-        copyServerIp
-    );
+    copyIpButton.addEventListener("click", copyServerIp);
+    joinCopyButton.addEventListener("click", copyServerIp);
+    menuButton.addEventListener("click", toggleNavigation);
 
-    joinCopyButton.addEventListener(
-        "click",
-        copyServerIp
-    );
-
-    menuButton.addEventListener(
-        "click",
-        toggleNavigation
-    );
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        {
-            passive: true
-        }
-    );
+    window.addEventListener("scroll", updateHeader, {
+        passive: true
+    });
 
     updateHeader();
     initializeRevealAnimations();
