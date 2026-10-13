@@ -1,1 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the AxloMC staff team.">
+    <meta name="theme-color" content="#070913">
 
+    <title>Staff | AxloMC</title>
+
+    <link rel="stylesheet" href="./staff.css">
+    <script src="./staff.js" defer></script>
+</head>
+
+<body>
+    <div class="page-background" aria-hidden="true">
+        <div class="background-grid"></div>
+        <div class="background-glow background-glow-red"></div>
+        <div class="background-glow background-glow-purple"></div>
+        <div class="background-glow background-glow-cyan"></div>
+    </div>
+
+    <header class="site-header" id="siteHeader">
+        <a class="brand" href="./index.html" aria-label="AxloMC home">
+            <img
+                class="brand-logo"
+                src="./img/IMG_2433.png"
+                alt="AxloMC logo"
+            >
+            <span>AXLOMC</span>
+        </a>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mainNavigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+            aria-label="Main navigation"
+        >
+            <a href="./index.html">Home</a>
+            <a href="./shop.html">Shop</a>
+            <a class="active" href="./staff.html">Staff</a>
+            <a href="./index.html#announcements">Announcements</a>
+            <a href="./index.html#news">News</a>
+            <a href="./index.html#posts">Posts</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="staff-hero">
+            <div class="hero-ring hero-ring-large" aria-hidden="true"></div>
+            <div class="hero-ring hero-ring-small" aria-hidden="true"></div>
+
+            <div class="staff-hero-content">
+                <p class="section-label">AXLOMC TEAM</p>
+
+                <h1>Meet the staff.</h1>
+
+                <p class="hero-description">
+                    The people responsible for leadership, development,
+                    moderation, and community support across AxloMC.
+                </p>
+
+                <div class="staff-summary">
+                    <div class="summary-item">
+                        <strong id="activeStaffCount">5</strong>
+                        <span>Active Staff</span>
+                    </div>
+
+                    <div class="summary-divider" aria-hidden="true"></div>
+
+                    <div class="summary-item">
+                        <strong>7</strong>
+                        <span>Staff Roles</span>
+                    </div>
+
+                    <div class="summary-divider" aria-hidden="true"></div>
+
+                    <div class="summary-item">
+                        <strong>2</strong>
+                        <span>Career Paths</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="staff-navigation-section">
+            <nav class="staff-navigation" aria-label="Staff categories">
+                <button
+                    class="staff-tab active"
+                    type="button"
+                    data-staff-filter="all"
+                >
+                    All Staff
+                </button>
+
+                <button
+                    class="staff-tab"
+                    type="button"
+                    data-staff-filter="leadership"
+                >
+                    Leadership
+                </button>
+
+                <button
+                    class="staff-tab"
+                    type="button"
+                    data-staff-filter="technical"
+                >
+                    Technical
+                </button>
+
+                <button
+                    class="staff-tab"
+                    type="button"
+                    data-staff-filter="moderation"
+                >
+                    Moderation
+                </button>
+
+                <button
+                    class="staff-tab"
+                    type="button"
+                    data-staff-filter="vacant"
+                >
+                    Vacant Roles
+                </button>
+            </nav>
+        </section>
+
+        <section class="staff-section">
+            <div class="section-heading reveal">
+                <div>
+                    <p class="section-label">CURRENT STAFF</p>
+                    <h2>The AxloMC team.</h2>
+                </div>
+
+                <p>
+                    Technical roles operate separately from the moderation
+                    promotion route.
+                </p>
+            </div>
+
+            <div class="staff-grid" id="staffGrid">
+                <article
+                    class="staff-card owner-card reveal"
+                    data-staff-category="leadership"
+                >
+                    <div class="role-strip">
+                        <span>OWNER</span>
+                    </div>
+
+                    <div class="profile-area">
+                        <div
+                            class="profile-placeholder"
+                            data-placeholder="H"
+                            aria-label="Profile image placeholder for Heowoiblerie"
+                        >
+                            H
+                        </div>
+
+                        <div class="profile-glow" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="staff-content">
+                        <div class="staff-heading">
+                            <div>
+                                <p class="role-name">Owner</p>
+                                <h3>Heowoiblerie</h3>
+                            </div>
+
+                            <span class="status-badge active-status">
+                                Active
+                            </span>
+                        </div>
+
+                        <p class="staff-description">
+                            Leads AxloMC, defines the network vision, and makes
+                            final decisions regarding development, operations,
+                            events, and community direction.
+                        </p>
+
+                        <div class="responsibility-list">
+                            <span>Network Leadership</span>
+                            <span>Final Decisions</span>
+                            <span>Major Events</span>
+                            <span>Server Direction</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="staff-card engineer-card reveal"
+                    data-staff-category="technical"
+                >
+                    <div class="role-strip">
+                        <span>ENGINEER</span>
+                    </div>
+
+                    <div class="profile-area">
+                        <div
+                            class="profile-placeholder"
+                            data-placeholder="U"
+                            aria-label="Profile image placeholder for Uunzipng"
+                        >
+                            U
+                        </div>
+
+                        <div class="profile-glow" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="staff-content">
+                        <div class="staff-heading">
+                            <div>
+                                <p class="role-name">Engineer</p>
+                                <h3>Uunzipng</h3>
+                            </div>
+
+                            <span class="status-badge active-status">
+                                Active
+                            </span>
+                        </div>
+
+                        <p class="staff-description">
+                            Develops and maintains technical systems,
+                            custom features, integrations, infrastructure,
+                            and network stability.
+                        </p>
+
+                        <div class="responsibility-list">
+                            <span>Custom Plugins</span>
+                            <span>Optimization</span>
+                            <span>Infrastructure</span>
+                            <span>Technical Support</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="staff-card admin-card reveal"
+                    data-staff-category="leadership"
+                >
+                    <div class="role-strip">
+                        <span>ADMIN</span>
+                    </div>
+
+                    <div class="profile-area">
+                        <div
+                            class="profile-placeholder"
+                            data-placeholder="Y"
+                            aria-label="Profile image placeholder for yellowboi22"
+                        >
+                            Y
+                        </div>
+
+                        <div class="profile-glow" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="staff-content">
+                        <div class="staff-heading">
+                            <div>
+                                <p class="role-name">Admin</p>
+                                <h3>yellowboi22</h3>
+                            </div>
+
+                            <span class="status-badge active-status">
+                                Active
+                            </span>
+                        </div>
+
+                        <p class="staff-description">
+                            Manages staff operations, complex reports,
+                            punishment appeals, network policies,
+                            and community administration.
+                        </p>
+
+                        <div class="responsibility-list">
+                            <span>Staff Management</span>
+                            <span>Appeals</span>
+                            <span>Policy Management</span>
+                            <span>Operations</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="staff-card senior-mod-card vacant-card reveal"
+                    data-staff-category="moderation vacant"
+                >
+                    <div class="role-strip">
+                        <span>SENIOR MODERATOR</span>
+                    </div>
+
+                    <div class="profile-area">
+                        <div
+                            class="profile-placeholder vacant-placeholder"
+                            aria-label="Vacant Senior Moderator position"
+                        >
+                            ?
+                        </div>
+
+                        <div class="profile-glow" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="staff-content">
+                        <div class="staff-heading">
+                            <div>
+                                <p class="role-name">Senior Moderator</p>
+                                <h3>Position Vacant</h3>
+                            </div>
+
+                            <span class="status-badge vacant-status">
+                                Vacant
+                            </span>
+                        </div>
+
+                        <p class="staff-description">
+                            Supervises Moderators, handles difficult cases,
+                            trains staff members, and coordinates moderation
+                            activity.
+                        </p>
+
+                        <div class="responsibility-list">
+                            <span>Moderator Supervision</span>
+                            <span>Complex Reports</span>
+                            <span>Staff Training</span>
+                            <span>Escalations</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="staff-card moderator-card reveal"
+                    data-staff-category="moderation"
+                >
+                    <div class="role-strip">
+                        <span>MODERATOR</span>
+                    </div>
+
+                    <div class="profile-area">
+                        <div
+                            class="profile-placeholder"
+                            data-placeholder="S"
+                            aria-label="Profile image placeholder for Solarix"
+                        >
+                            S
+                        </div>
+
+                        <div class="profile-glow" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="staff-content">
+                        <div class="staff-heading">
+                            <div>
+                                <p class="role-name">Moderator</p>
+                                <h3>Solarix</h3>
+                            </div>
+
+                            <span class="status-badge active-status">
+                                Active
+                            </span>
+                        </div>
+
+                        <p class="staff-description">
+                            Reviews player reports, monitors network activity,
+                            enforces server rules, and protects the community.
+                        </p>
+
+                        <div class="responsibility-list">
+                            <span>Player Reports</span>
+                            <span>Rule Enforcement</span>
+                            <span>Chat Moderation</span>
+                            <span>Event Support</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="staff-card moderator-card reveal"
+                    data-staff-category="moderation"
+                >
+                    <div class="role-strip">
+                        <span>MODERATOR</span>
+                    </div>
+
+                    <div class="profile-area">
+                        <div
+                            class="profile-placeholder"
+                            data-placeholder="U"
+                            aria-label="Profile image placeholder for UniqueIdentity"
+                        >
+                            U
+                        </div>
+
+                        <div class="profile-glow" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="staff-content">
+                        <div class="staff-heading">
+                            <div>
+                                <p class="role-name">Moderator</p>
+                                <h3>UniqueIdentity</h3>
+                            </div>
+
+                            <span class="status-badge active-status">
+                                Active
+                            </span>
+                        </div>
+
+                        <p class="staff-description">
+                            Reviews player reports, monitors network activity,
+                            enforces server rules, and protects the community.
+                        </p>
+
+                        <div class="responsibility-list">
+                            <span>Player Reports</span>
+                            <span>Rule Enforcement</span>
+                            <span>Chat Moderation</span>
+                            <span>Event Support</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="staff-card helper-card vacant-card reveal"
+                    data-staff-category="moderation vacant"
+                >
+                    <div class="role-strip">
+                        <span>HELPER</span>
+                    </div>
+
+                    <div class="profile-area">
+                        <div
+                            class="profile-placeholder vacant-placeholder"
+                            aria-label="Vacant Helper position"
+                        >
+                            ?
+                        </div>
+
+                        <div class="profile-glow" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="staff-content">
+                        <div class="staff-heading">
+                            <div>
+                                <p class="role-name">Helper</p>
+                                <h3>Position Vacant</h3>
+                            </div>
+
+                            <span class="status-badge vacant-status">
+                                Vacant
+                            </span>
+                        </div>
+
+                        <p class="staff-description">
+                            Supports new players, answers questions,
+                            explains network systems, and reports problems
+                            to Moderators.
+                        </p>
+
+                        <div class="responsibility-list">
+                            <span>Player Support</span>
+                            <span>New Player Guidance</span>
+                            <span>Rule Explanation</span>
+                            <span>Issue Reporting</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="staff-card trainee-card vacant-card reveal"
+                    data-staff-category="moderation vacant"
+                >
+                    <div class="role-strip">
+                        <span>TRAINEE</span>
+                    </div>
+
+                    <div class="profile-area">
+                        <div
+                            class="profile-placeholder vacant-placeholder"
+                            aria-label="Vacant Trainee position"
+                        >
+                            ?
+                        </div>
+
+                        <div class="profile-glow" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="staff-content">
+            atus">
+                                Vacant
+                            </span>
+                        </div>
+
+                        <p class="staff-description">
+                            A temporary evaluation role for new staff
+                            candidates learning AxloMC procedures and
+                            community standards.
+                        </p>
+
+                        <div class="responsibility-list">
+                            <span>Staff Training</span>
+                            <span>Community Observation</span>
+                            <span>Basic Support</span>
+                            <span>Performance Review</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="empty-filter-message" id="emptyFilterMessage" hidden>
+                No staff positions are available in this category.
+            </div>
+        </section>
+
+        <section class="structure-section">
+            <div class="section-heading reveal">
+                <div>
+                    <p class="section-label">STAFF STRUCTURE</p>
+                    <h2>Two distinct paths.</h2>
+                </div>
+
+                <p>
+                    Moderation and technical staff serve different purposes
+                    and follow separate appointment systems.
+                </p>
+            </div>
+
+            <div class="path-grid">
+                <article class="path-card moderation-path reveal">
+                    <p class="path-label">MODERATION PATH</p>
+
+                    <div class="path-flow">
+                        <span class="trainee-node">Trainee</span>
+                        <span class="path-arrow">→</span>
+                        <span class="helper-node">Helper</span>
+                        <span class="path-arrow">→</span>
+                        <span class="moderator-node">Moderator</span>
+                        <span class="path-arrow">→</span>
+                        <span class="senior-node">Senior Moderator</span>
+                        <span class="path-arrow">→</span>
+                        <span class="admin-node">Admin</span>
+                    </div>
+
+                    <p>
+                        Moderation staff progress through experience,
+                        activity, reliability, and demonstrated judgment.
+                    </p>
+                </article>
+
+                <article class="path-card technical-path reveal">
+                    <p class="path-label">TECHNICAL PATH</p>
+
+                    <div class="technical-role">
+                        <span>Engineer</span>
+                    </div>
+
+                    <p>
+                        Engineer is a separate specialist role and does not
+                        require progression through the moderation team.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="recruitment-section">
+            <div class="recruitment-panel reveal">
+                <div>
+                    <p class="section-label">STAFF RECRUITMENT</p>
+
+                    <h2>Applications are not open yet.</h2>
+
+                    <p>
+                        Requirements, application forms, and available
+                        positions will be published before recruitment begins.
+                    </p>
+                </div>
+
+                <button
+                    class="application-button"
+                    id="applicationButton"
+                    type="button"
+                >
+                    Applications Closed
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            ./img/IMG_2433.png
+
+            <div>
+                <strong>AXLOMC</strong>
+                <span>Minecraft Network</span>
+            </div>
+        </div>
+
+        <nav class="footer-navigation" aria-label="Footer navigation">
+            ./index.htmlHome</a>
+            ./shop.htmlShop</a>
+            ./staff.htmlStaff</a>
+            ./index.html#newsNews</a>
+            ./index.html#postsPosts</a>
+        </nav>
+
+        <p class="copyright">
+            © <span id="currentYear"></span> AxloMC. All rights reserved.
+        </p>
+    </footer>
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+    >
+        Staff applications are currently closed.
+    </div>
+</body>
+</html>
