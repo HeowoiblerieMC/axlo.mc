@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Complete AxloMC network information preserved from the original 107-slide design presentation.">
+  <meta name="description" content="Protected AxloMC network information.">
   <meta name="theme-color" content="#060811">
   <title>Information | AxloMC</title>
   <link rel="stylesheet" href="./information.css">
@@ -11,14 +11,25 @@
 </head>
 <body>
   <div class="page-background" aria-hidden="true"><div class="background-grid"></div><div class="glow glow-purple"></div><div class="glow glow-cyan"></div></div>
-  <header class="site-header" id="siteHeader">
-    <a class="brand" href="./index.html" aria-label="AxloMC home"><img src="./img/IMG_2433.png" alt="AxloMC logo"><span>AXLOMC</span></a>
-    <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNavigation"><span></span><span></span><span></span></button>
-    <nav class="main-navigation" id="mainNavigation" aria-label="Main navigation"><a href="./index.html">Home</a><a class="active" href="./information.html">Information</a><a href="./shop.html">Shop</a><a href="./staff.html">Staff</a><a href="./index.html#announcements">Announcements</a><a href="./index.html#news">News</a><a href="./index.html#posts">Posts</a></nav>
-  </header>
-  <main>
-    <section class="information-hero" id="top"><div class="hero-ring hero-ring-large" aria-hidden="true"></div><div class="hero-ring hero-ring-small" aria-hidden="true"></div><div class="information-hero-content"><img class="information-logo" src="./img/IMG_2433.png" alt="AxloMC logo"><p class="eyebrow">COMPLETE NETWORK DESIGN DOCUMENT</p><h1>Everything planned <span>for AxloMC.</span></h1><p class="information-introduction">All text information from the original 107-slide AxloMC presentation is preserved below, organized into readable chapters without requiring the PowerPoint file.</p><div class="information-actions"><a class="button button-primary" href="#overview">Start Reading</a><a class="button button-secondary" href="./shop.html">View Store</a></div><div class="concept-summary rgb-interactive"><div><strong>107</strong><span>Source Slides</span></div><i aria-hidden="true"></i><div><strong>15</strong><span>Chapters</span></div><i aria-hidden="true"></i><div><strong>1</strong><span>Connected Network</span></div></div></div></section>
-    <div class="chapter-navigation-wrap"><nav class="chapter-navigation" id="chapterNavigation" aria-label="Information chapters"><a href="#overview">Overview</a><a href="#economy">AX & Jewels</a><a href="#survival">Survival</a><a href="#bedwars">BedWars</a><a href="#skywars">SkyWars</a><a href="#duels">Duels</a><a href="#event-hall">Event Hall</a><a href="#creative">Creative</a><a href="#nightmare">Squid Nightmare</a><a href="#christmas">Christmas Event</a><a href="#ranks">Ranks</a><a href="#tags">Chat Tags</a><a href="#staff">Staff</a><a href="#rules">Rules & Website</a><a href="#development">Development</a></nav></div><div id="informationContent"></div></main>
-  <footer class="site-footer"><div class="footer-brand"><img src="./img/IMG_2433.png" alt="AxloMC logo"><div><strong>AXLOMC</strong><span>Minecraft Network</span></div></div><nav aria-label="Footer navigation"><a href="./index.html">Home</a><a href="./information.html">Information</a><a href="./shop.html">Shop</a><a href="./staff.html">Staff</a></nav><p>Â© <span id="currentYear"></span> AxloMC. All rights reserved.</p></footer>
+  <section class="access-gate" id="accessGate" aria-labelledby="accessTitle">
+    <div class="access-card">
+      <img src="./img/IMG_2433.png" alt="AxloMC logo">
+      <p class="eyebrow">RESTRICTED INFORMATION</p>
+      <h1 id="accessTitle">Enter the password.</h1>
+      <p>This design document is protected. Enter the password to continue.</p>
+      <form id="accessForm">
+        <label for="accessPassword">Password</label>
+        <div class="password-row"><input id="accessPassword" type="password" autocomplete="current-password" required><button id="togglePassword" type="button" aria-label="Show password">Show</button></div>
+        <button class="unlock-button" id="unlockButton" type="submit">Unlock Information</button>
+        <p class="access-message" id="accessMessage" role="status" aria-live="polite"></p>
+      </form>
+      <a class="return-link" href="./index.html">Return to Home</a>
+    </div>
+  </section>
+  <div id="protectedSite" hidden>
+    <header class="site-header" id="siteHeader"><a class="brand" href="./index.html" aria-label="AxloMC home"><img src="./img/IMG_2433.png" alt="AxloMC logo"><span>AXLOMC</span></a><button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNavigation"><span></span><span></span><span></span></button><nav class="main-navigation" id="mainNavigation" aria-label="Main navigation"><a href="./index.html">Home</a><a class="active" href="./information.html">Information</a><a href="./shop.html">Shop</a><a href="./staff.html">Staff</a><button class="lock-button" id="lockButton" type="button">Lock Page</button></nav></header>
+    <main><section class="information-hero" id="top"><div class="hero-ring hero-ring-large" aria-hidden="true"></div><div class="hero-ring hero-ring-small" aria-hidden="true"></div><div class="information-hero-content"><img class="information-logo" src="./img/IMG_2433.png" alt="AxloMC logo"><p class="eyebrow">COMPLETE NETWORK DESIGN DOCUMENT</p><h1>Everything planned <span>for AxloMC.</span></h1><p class="information-introduction">All text information from the original 107-slide AxloMC presentation is preserved below.</p><div class="information-actions"><a class="button button-primary" href="#overview">Start Reading</a><a class="button button-secondary" href="./shop.html">View Store</a></div><div class="concept-summary rgb-interactive"><div><strong>107</strong><span>Source Slides</span></div><i></i><div><strong>15</strong><span>Chapters</span></div><i></i><div><strong>1</strong><span>Connected Network</span></div></div></div></section><div class="chapter-navigation-wrap"><nav class="chapter-navigation" id="chapterNavigation" aria-label="Information chapters"></nav></div><div id="informationContent"></div></main>
+    <footer class="site-footer"><div class="footer-brand"><img src="./img/IMG_2433.png" alt="AxloMC logo"><div><strong>AXLOMC</strong><span>Minecraft Network</span></div></div><nav><a href="./index.html">Home</a><a href="./information.html">Information</a><a href="./shop.html">Shop</a><a href="./staff.html">Staff</a></nav><p>Â© <span id="currentYear"></span> AxloMC. All rights reserved.</p></footer>
+  </div>
 </body>
 </html>
